@@ -1,0 +1,16 @@
+[ui]
+username = zephod
+ignore = ~/.hgignore_global
+
+[extensions]
+graphlog=
+mq=
+rebase=
+transplant=
+pager=
+hgshelve=/etc/mercurial/extensions/hgshelve.py
+
+[pager]
+pager = LESS='FSRX' less
+
+
