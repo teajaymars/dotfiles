@@ -58,6 +58,8 @@ call pathogen#runtime_append_all_bundles()
 colorscheme desert
 " Highlight syntax
 syntax on
+" Don't highlight very long lines (it ruins performance)
+set synmaxcol=200
 " Highlight searches
 set hlsearch
 " Show absolute line numbers
@@ -74,7 +76,14 @@ au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 " Custom filetype mappings
 au BufNewFile,BufRead *.article set filetype=html
-au BufNewFile,BufRead *.less set filetype=css
+au BufNewFile,BufRead *.less set filetype=less
+" Autocompletion
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
 " ====================
 " Variable indentation
@@ -120,11 +129,12 @@ nnoremap <Leader>w :w<Return>:!%:p<Return>
 " Toggle fullscreen editing
 nnoremap <Leader>f :call Tom_toggle_fullscreen()<Return>
 
+
 " ===============
 " Macvim settings
 " ===============
 if has('gui_running')
-  " Beautiful colours; potentially unavailable
+  " Beautiful colours; potentially unavailable:
   colorscheme molokai
   " Font settings
   set guifont=Consolas:h12
@@ -154,3 +164,8 @@ let g:CommandTAcceptSelectionTabMap = '<CR>'
 " Stop command-t showing me everything in my python environments
 set wildignore+=%env.*
 
+" ==================
+" Plugin: ConqueTerm
+" ==================
+" Use Control k to get to vim mode
+let g:ConqueTerm_EscKey = '<C-k>'
