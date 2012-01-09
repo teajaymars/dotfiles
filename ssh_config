@@ -6,3 +6,15 @@ Host cam
 HostName cam.zephod.com
 User avon
 
+Host dev.okfn
+HostName dev.okfn.org
+User okfn
+# cd var/srvc/test.ckan.net/src/ckan
+
+Host wp.okfn
+HostName s053.okserver.org
+User okfn
+
+Host db.okfn
+HostName db-sov.okserver.org
+User okfn
