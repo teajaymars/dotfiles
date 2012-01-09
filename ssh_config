@@ -1,0 +1,8 @@
+Host zen
+HostName zen
+User avon
+
+Host cam
+HostName cam.zephod.com
+User avon
+
