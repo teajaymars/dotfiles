@@ -2,3 +2,4 @@
 *.tom
 %env.*
 ckan.log
+*.pyc
