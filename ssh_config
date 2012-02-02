@@ -1,15 +1,9 @@
-Host zen
-HostName zen
-User avon
-
-Host cam
-HostName cam.zephod.com
-User avon
-
+########################
+###   OKFN Servers   ###
+########################
 Host dev.okfn
 HostName dev.okfn.org
 User okfn
-# cd var/srvc/test.ckan.net/src/ckan
 
 Host wp.okfn
 HostName s053.okserver.org
@@ -18,3 +12,33 @@ User okfn
 Host db.okfn
 HostName db-sov.okserver.org
 User okfn
+
+Host dh1.okfn
+HostName dh1.okserver.org
+User okfn
+
+
+#######################
+###   Amazon AMIs   ###
+#######################
+Host wikistave
+HostName ec2-46-137-38-226.eu-west-1.compute.amazonaws.com
+User ubuntu
+IdentityFile ~/.ssh/amazon-keys.pem 
+
+Host aws.zephod.com
+HostName aws.zephod.com
+User ec2-user
+IdentityFile ~/.ssh/amazon-keys.pem 
+
+
+################################
+###   My Physical Machines   ###
+################################
+Host zen
+HostName zen
+User avon
+
+Host cam
+HostName cam.zephod.com
+User avon
