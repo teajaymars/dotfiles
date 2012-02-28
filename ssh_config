@@ -22,13 +22,38 @@ User okfn
 ###   Amazon AMIs   ###
 #######################
 Host wikistave
-HostName ec2-46-137-38-226.eu-west-1.compute.amazonaws.com
+HostName ec2-46-137-66-161.eu-west-1.compute.amazonaws.com
 User ubuntu
 IdentityFile ~/.ssh/amazon-keys.pem 
 
 Host aws.zephod.com
 HostName aws.zephod.com
 User ec2-user
+IdentityFile ~/.ssh/amazon-keys.pem 
+
+Host scraperbot1
+HostName ec2-176-34-171-54.eu-west-1.compute.amazonaws.com
+User ubuntu
+IdentityFile ~/.ssh/amazon-keys.pem 
+
+Host scraperbot2
+HostName ec2-79-125-103-121.eu-west-1.compute.amazonaws.com
+User ubuntu
+IdentityFile ~/.ssh/amazon-keys.pem 
+
+Host scraperbot3
+HostName ec2-46-137-42-113.eu-west-1.compute.amazonaws.com
+User ubuntu 
+IdentityFile ~/.ssh/amazon-keys.pem 
+
+Host scraperbot4
+HostName ec2-79-125-59-138.eu-west-1.compute.amazonaws.com
+User ubuntu
+IdentityFile ~/.ssh/amazon-keys.pem 
+
+Host scraperbot5
+HostName ec2-79-125-77-56.eu-west-1.compute.amazonaws.com
+User ubuntu
 IdentityFile ~/.ssh/amazon-keys.pem 
 
 
