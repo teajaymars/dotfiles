@@ -46,3 +46,8 @@ alias gl='git log'
 # Node.js configuration
 export NODE_PATH=/usr/lib/node_modules
 
+export PATH=$PATH:/usr/local/mysql/bin
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+
+# Git autocompletion script
+. ~/scripts/.git-completion.sh

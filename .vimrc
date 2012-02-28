@@ -169,3 +169,4 @@ set wildignore+=%env.*
 " ==================
 " Use Control k to get to vim mode
 let g:ConqueTerm_EscKey = '<C-k>'
+
