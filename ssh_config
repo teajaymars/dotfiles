@@ -18,6 +18,14 @@ HostName dh1.okserver.org
 User okfn
 
 
+###################
+### DGU Project ###
+###################
+Host dgudev
+HostName dgu-dev.okfn.org
+User okfn
+
+
 #######################
 ###   Amazon AMIs   ###
 #######################
