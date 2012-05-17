@@ -29,6 +29,11 @@ User okfn
 #######################
 ###   Amazon AMIs   ###
 #######################
+Host amazon
+HostName 54.247.169.89
+User ubuntu
+IdentityFile ~/.ssh/amazon-keys.pem 
+
 Host wikistave
 HostName ec2-46-137-66-161.eu-west-1.compute.amazonaws.com
 User ubuntu
@@ -75,3 +80,7 @@ User avon
 Host cam
 HostName cam.zephod.com
 User avon
+
+Host appletv
+HostName 192.168.0.35
+User root
