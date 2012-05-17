@@ -59,7 +59,7 @@ colorscheme desert
 " Highlight syntax
 syntax on
 " Don't highlight very long lines (it ruins performance)
-set synmaxcol=200
+set synmaxcol=800
 " Highlight searches
 set hlsearch
 " Show absolute line numbers
@@ -77,6 +77,8 @@ set cursorline cursorcolumn
 " Custom filetype mappings
 au BufNewFile,BufRead *.article set filetype=html
 au BufNewFile,BufRead *.less set filetype=less
+au BufNewFile,BufRead *.coffee set filetype=coffee
+au BufNewFile,BufRead *.cls set filetype=tex
 " Autocompletion
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -149,7 +151,7 @@ if has('gui_running')
       set lines=44
       set nofullscreen
     else
-      set lines=48
+      set lines=47
       set fullscreen
     endif
   endfunction
