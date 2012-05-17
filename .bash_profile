@@ -24,6 +24,11 @@ alias mvim="open -a MacVim.app"
 # Use the Ubuntu default prompt
 export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
 
+# Fast searching for files
+findext() {
+  find . -name \*.$1
+}
+
 # FYI: Old (boring) OS X prompt
 #export PS1"=\h:\W \u\$ "
 
@@ -51,3 +56,4 @@ export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 # Git autocompletion script
 . ~/scripts/.git-completion.sh
+
