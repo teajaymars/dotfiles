@@ -103,9 +103,9 @@ function IndentWithSpaces(tab_size)
   set expandtab
 endfunction
 " Python code
-"call IndentWithTabs(4)
+call IndentWithSpaces(4)
 " OKFN style
-call IndentWithSpaces(2)
+"call IndentWithSpaces(2)
 
 " =============
 " Key Remapping
@@ -129,7 +129,9 @@ nnoremap <Leader>, 4<C-w><
 " Save and execute
 nnoremap <Leader>w :w<Return>:!%:p<Return>
 " Toggle fullscreen editing
-nnoremap <Leader>f :call Tom_toggle_fullscreen()<Return>
+" nnoremap <Leader>f :call Tom_toggle_fullscreen()<Return>
+" Flush the command-t buffer
+nnoremap <Leader>f :CommandTFlush<Return>
 
 
 " ===============
@@ -165,6 +167,7 @@ let g:CommandTAcceptSelectionMap = '<C-t>'
 let g:CommandTAcceptSelectionTabMap = '<CR>'
 " Stop command-t showing me everything in my python environments
 set wildignore+=%env.*
+set wildignore+=node_modules
 
 " ==================
 " Plugin: ConqueTerm
