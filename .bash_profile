@@ -46,7 +46,7 @@ alias gca='git commit -a'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias gpom='git push origin master'
-alias gl='git log'
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
 
 # Node.js configuration
 export NODE_PATH=/usr/lib/node_modules
