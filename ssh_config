@@ -82,5 +82,9 @@ HostName cam.zephod.com
 User avon
 
 Host appletv
-HostName 192.168.0.35
+HostName 192.168.0.111
+User root
+
+Host tomato
+Hostname router
 User root
