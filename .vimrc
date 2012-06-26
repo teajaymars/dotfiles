@@ -79,6 +79,8 @@ au BufNewFile,BufRead *.article set filetype=html
 au BufNewFile,BufRead *.less set filetype=less
 au BufNewFile,BufRead *.coffee set filetype=coffee
 au BufNewFile,BufRead *.cls set filetype=tex
+au BufNewFile,BufRead *.styl set filetype=stylus
+au BufNewFile,BufRead *.hbs set filetype=html
 " Autocompletion
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
