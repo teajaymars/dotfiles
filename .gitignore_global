@@ -1,6 +1,6 @@
 .DS_Store
 *.tom
-%env.*
+%*
 ckan.log
 *.pyc
 .npmignore
