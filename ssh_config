@@ -25,6 +25,9 @@ Host dgudev
 HostName dgu-dev.okfn.org
 User okfn
 
+Host bytemark
+HostName co-prod1.dh.bytemark.co.uk
+User co
 
 #######################
 ###   Amazon AMIs   ###
