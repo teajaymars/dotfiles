@@ -81,6 +81,7 @@ au BufNewFile,BufRead *.coffee set filetype=coffee
 au BufNewFile,BufRead *.cls set filetype=tex
 au BufNewFile,BufRead *.styl set filetype=stylus
 au BufNewFile,BufRead *.hbs set filetype=html
+au BufNewFile,BufRead *.md set filetype=markdown
 " Autocompletion
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
@@ -104,10 +105,11 @@ function IndentWithSpaces(tab_size)
   execute "set shiftwidth=".a:tab_size
   set expandtab
 endfunction
-" Python code
-call IndentWithSpaces(4)
 " OKFN style
-"call IndentWithSpaces(2)
+call IndentWithSpaces(2)
+" Python code
+autocmd FileType python call IndentWithSpaces(4)
+
 
 " =============
 " Key Remapping
