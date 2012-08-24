@@ -5,6 +5,8 @@
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 # MySQL binaries
 export PATH="/usr/local/mysql/bin:$PATH"
+# /usr/local/sbin for RabbitMQ
+export PATH="/usr/local/sbin:$PATH"
 
 #################
 ## ENVIRONMENT ##
