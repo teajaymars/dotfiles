@@ -126,7 +126,6 @@ set nowrap
 nnoremap <Leader><Return> :set wrap!<Return>
 " Split window
 nnoremap <Leader>s <C-w>v<C-w>l
-nnoremap <Leader>b :ConqueTermVSplit bash<Return>
 " Resize window
 nnoremap <Leader>. 4<C-w>>
 nnoremap <Leader>, 4<C-w><
@@ -170,12 +169,7 @@ endif
 let g:CommandTAcceptSelectionMap = '<C-t>'
 let g:CommandTAcceptSelectionTabMap = '<CR>'
 " Stop command-t showing me everything in my python environments
-set wildignore+=%env.*
+set wildignore+=%*
+set wildignore+=*.pyc
 set wildignore+=node_modules
-
-" ==================
-" Plugin: ConqueTerm
-" ==================
-" Use Control k to get to vim mode
-let g:ConqueTerm_EscKey = '<C-k>'
 
