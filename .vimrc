@@ -54,8 +54,10 @@ if $VIM_CRONTAB == 'true'
 endif
 " Load Pathogen
 call pathogen#runtime_append_all_bundles() 
-" Should always be available
+" Increasing order of preference
+set t_Co=256
 colorscheme desert
+colorscheme molokai
 " Highlight syntax
 syntax on
 " Don't highlight very long lines (it ruins performance)
@@ -141,8 +143,6 @@ nnoremap <Leader>f :CommandTFlush<Return>
 " Macvim settings
 " ===============
 if has('gui_running')
-  " Beautiful colours; potentially unavailable:
-  colorscheme molokai
   " Font settings
   set guifont=Consolas:h12
   set fuoptions=background:#ff111111
@@ -150,16 +150,6 @@ if has('gui_running')
   " Window size
   set lines=44
   set columns=140
-  " Shortcut method to resize window
-  function Tom_toggle_fullscreen()
-    if &fullscreen==1
-      set lines=44
-      set nofullscreen
-    else
-      set lines=47
-      set fullscreen
-    endif
-  endfunction
 endif
 
 " =================
