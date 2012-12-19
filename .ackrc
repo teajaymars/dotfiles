@@ -1,2 +1,6 @@
 --type-add
 js=.coffee
+--type-add
+css=.less
+--type-add
+html=.hbs
