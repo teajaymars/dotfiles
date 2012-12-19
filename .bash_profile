@@ -15,7 +15,7 @@ export PATH="/usr/local/sbin:$PATH"
 export EDITOR=vim
 # Node.js configuration
 export NODE_PATH=/usr/lib/node_modules
-export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
+#export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 #############
 ## ALIASES ##
@@ -51,7 +51,10 @@ alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %
 #########
 
 # Git autocompletion script
-. ~/scripts/.git-completion.sh
+GIT_SCRIPT=~/scripts/.git-completion.sh 
+if [ -e $GIT_SCRIPT ] ; then
+  source $GIT_SCRIPT
+fi
 
 # Fast searching for files
 findext() {
@@ -66,3 +69,5 @@ export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\
 # FYI: Old (boring) OS X prompt
 #export PS1"=\h:\W \u\$ "
 
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
