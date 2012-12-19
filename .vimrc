@@ -96,15 +96,15 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 " Variable indentation
 " ====================
 function IndentWithTabs(tab_size)
-  execute "set softtabstop=".a:tab_size
-  execute "set tabstop=".a:tab_size
-  execute "set shiftwidth=".a:tab_size
+  execute "setlocal softtabstop=".a:tab_size
+  execute "setlocal tabstop=".a:tab_size
+  execute "setlocal shiftwidth=".a:tab_size
   set noexpandtab
 endfunction
 function IndentWithSpaces(tab_size)
-  execute "set softtabstop=".a:tab_size
-  execute "set tabstop=".a:tab_size
-  execute "set shiftwidth=".a:tab_size
+  execute "setlocal softtabstop=".a:tab_size
+  execute "setlocal tabstop=".a:tab_size
+  execute "setlocal shiftwidth=".a:tab_size
   set expandtab
 endfunction
 " OKFN style
@@ -120,7 +120,7 @@ autocmd FileType python call IndentWithSpaces(4)
 nnoremap j gj
 nnoremap k gk
 " Use ESC to kill search highlights
-nnoremap <Esc> :nohlsearch<Return>
+nnoremap <Leader><Esc> :nohlsearch<Return>
 " Double tap the leader to toggle hidden characters
 nnoremap <Leader><Leader> :set list!<Return>
 " Leader-enter to toggle word wrap
