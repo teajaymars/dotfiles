@@ -2,8 +2,16 @@
 ###   OKFN Servers   ###
 ########################
 # pagely (s070)
-Host pagely
+Host s070
 HostName s070.okserver.org
+User okfn
+# dev.okfn.org (s030)
+Host s030
+HostName s030.okserver.org
+User okfn
+# mail.okfn.org (s001)
+Host s001
+HostName s001.okserver.org
 User okfn
 # Diamondbacks
 Host dh1.okfn
@@ -25,10 +33,16 @@ User co
 #######################
 ###   Amazon AMIs   ###
 #######################
-# Host amazon
-# HostName ec2-46-137-66-161.eu-west-1.compute.amazonaws.com
-# User ubuntu
-# IdentityFile ~/.ssh/amazon-keys.pem 
+Host iati-basex
+HostName 107.22.195.156
+User ubuntu
+IdentityFile ~/.ssh/iati-basex.pem 
+
+
+Host iati-basex2
+HostName ec2-174-129-179-191.compute-1.amazonaws.com
+User ubuntu
+IdentityFile ~/.ssh/iati-basex.pem 
 
 
 ################################
@@ -38,10 +52,14 @@ Host appletv
 HostName 192.168.0.111
 User root
 
-Host pi
+Host blackpi
 HostName cam.zephod.com
 User pi
 Port 80
+
+Host bluepi
+HostName 192.168.0.114
+User pi
 
 Host tomato
 Hostname router
