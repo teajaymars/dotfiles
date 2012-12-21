@@ -54,10 +54,8 @@ if $VIM_CRONTAB == 'true'
 endif
 " Load Pathogen
 call pathogen#runtime_append_all_bundles() 
-" Increasing order of preference
-set t_Co=256
-colorscheme desert
-colorscheme molokai
+" Colorscheme
+colorscheme tomokai
 " Highlight syntax
 syntax on
 " Don't highlight very long lines (it ruins performance)
@@ -127,7 +125,7 @@ nnoremap <Leader><Leader> :set list!<Return>
 set nowrap
 nnoremap <Leader><Return> :set wrap!<Return>
 " Split window
-nnoremap <Leader>s <C-w>v<C-w>l
+nnoremap <Leader>s :belowright vnew<Return>
 " Resize window
 nnoremap <Leader>. 4<C-w>>
 nnoremap <Leader>, 4<C-w><
@@ -137,7 +135,6 @@ nnoremap <Leader>w :w<Return>:!%:p<Return>
 " nnoremap <Leader>f :call Tom_toggle_fullscreen()<Return>
 " Flush the command-t buffer
 nnoremap <Leader>f :CommandTFlush<Return>
-
 
 " ===============
 " Macvim settings
