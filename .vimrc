@@ -93,13 +93,13 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 " ====================
 " Variable indentation
 " ====================
-function IndentWithTabs(tab_size)
+function! IndentWithTabs(tab_size)
   execute "setlocal softtabstop=".a:tab_size
   execute "setlocal tabstop=".a:tab_size
   execute "setlocal shiftwidth=".a:tab_size
   set noexpandtab
 endfunction
-function IndentWithSpaces(tab_size)
+function! IndentWithSpaces(tab_size)
   execute "setlocal softtabstop=".a:tab_size
   execute "setlocal tabstop=".a:tab_size
   execute "setlocal shiftwidth=".a:tab_size
@@ -114,6 +114,9 @@ autocmd FileType python call IndentWithSpaces(4)
 " =============
 " Key Remapping
 " =============
+" Quickly edit/reload the vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " When line-wrapping, move by SCREEN line not by FILE line
 nnoremap j gj
 nnoremap k gk
@@ -125,16 +128,13 @@ nnoremap <Leader><Leader> :set list!<Return>
 set nowrap
 nnoremap <Leader><Return> :set wrap!<Return>
 " Split window
-nnoremap <Leader>s :belowright vnew<Return>
-" Resize window
-nnoremap <Leader>. 4<C-w>>
-nnoremap <Leader>, 4<C-w><
-" Save and execute
-nnoremap <Leader>w :w<Return>:!%:p<Return>
-" Toggle fullscreen editing
-" nnoremap <Leader>f :call Tom_toggle_fullscreen()<Return>
+" nnoremap <Leader>s :belowright vnew<Return>
 " Flush the command-t buffer
 nnoremap <Leader>f :CommandTFlush<Return>
+" Handle tabbing
+nnoremap <Leader>q :tabp<Return>
+nnoremap <Leader>w :tabn<Return>
+nnoremap <Leader>n :tabnew<Return>
 
 " ===============
 " Macvim settings

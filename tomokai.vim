@@ -212,5 +212,9 @@ if &t_Co > 255
    hi ColorColumn                 ctermbg=235
    hi LineNr          ctermfg=250 ctermbg=234
    hi NonText         ctermfg=240 ctermbg=234
+   hi TabLine         ctermfg=244 ctermbg=237 cterm=underline
+   hi TabLineFill     ctermfg=244 ctermbg=237 cterm=underline
+   hi TabLineSel      ctermfg=232 ctermbg=250 cterm=none
 end " }}}
+
 
