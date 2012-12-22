@@ -4,3 +4,4 @@
 ckan.log
 *.pyc
 .npmignore
+_build
