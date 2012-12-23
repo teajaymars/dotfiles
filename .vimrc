@@ -161,4 +161,5 @@ let g:CommandTAcceptSelectionTabMap = '<CR>'
 set wildignore+=%*
 set wildignore+=*.pyc
 set wildignore+=node_modules
+set wildignore+=_build
 
