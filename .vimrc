@@ -105,8 +105,10 @@ function! IndentWithSpaces(tab_size)
   execute "setlocal shiftwidth=".a:tab_size
   set expandtab
 endfunction
-" OKFN style
-call IndentWithSpaces(2)
+" Set up default 4-space tabbing anyway
+set softtabstop=2
+set tabstop=2
+set shiftwidth=2
 " Python code
 autocmd FileType python call IndentWithSpaces(4)
 
