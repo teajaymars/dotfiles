@@ -44,6 +44,8 @@ alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias gpom='git push origin master'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+alias tc='tmux new -s '
+alias tt='tmux attach -t'
 
 
 #########
