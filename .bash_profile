@@ -3,10 +3,6 @@
 ##########
 # Postgres binaries
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
-# MySQL binaries
-export PATH="/usr/local/mysql/bin:$PATH"
-# /usr/local/sbin for RabbitMQ
-export PATH="/usr/local/sbin:$PATH"
 
 #################
 ## ENVIRONMENT ##
@@ -15,7 +11,6 @@ export PATH="/usr/local/sbin:$PATH"
 export EDITOR=vim
 # Node.js configuration
 export NODE_PATH=/usr/lib/node_modules
-#export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
 #############
 ## ALIASES ##
@@ -65,8 +60,5 @@ set -o vi
 
 # Use the Ubuntu default prompt
 export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
-# FYI: Old (boring) OS X prompt
-#export PS1"=\h:\W \u\$ "
-
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
