@@ -163,3 +163,18 @@ set wildignore+=*.pyc
 set wildignore+=node_modules
 set wildignore+=_build
 
+
+" ========================================================================
+" Glitch fix: Up/Down to not work inside Command-T inside Vim inside tmux.
+" See: http://superuser.com/questions/237751/messed-up-keys-in-vim-when-running-inside-tmux
+" See: http://superuser.com/questions/401926/how-to-get-shiftarrows-and-ctrlarrows-working-in-vim-in-tmux/402084#402084
+" ========================================================================
+if &term =~ '^screen'
+	" tmux will send xterm-style keys when its xterm-keys option is on
+	execute "set <xUp>=\e[1;*A"
+	execute "set <xDown>=\e[1;*B"
+	execute "set <xRight>=\e[1;*C"
+	execute "set <xLeft>=\e[1;*D"
+	" This one key binding will make all arrow keys work properly
+	map <Esc>[B <Down>
+endif
