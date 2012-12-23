@@ -4,3 +4,6 @@ js=.coffee
 css=.less
 --type-add
 html=.hbs
+
+--ignore-dir=node_modules
+--ignore-dir=%ibp
