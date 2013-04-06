@@ -17,6 +17,9 @@ set ruler
 set showcmd		
 " Do incremental searching
 set incsearch		
+" Case insensitive search unless Search String cOnstains Capitals
+set ignorecase
+set smartcase
 " Don't use Ex mode, use Q for formatting
 map Q gq
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
@@ -68,8 +71,6 @@ set number
 set linebreak
 " I really like seeing these characters sometimes
 set listchars=tab:▸\ ,eol:¬
-" Can I always be in the code folder, please?
-cd /Users/zephod/code
 " Highlight cursor line/column
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
@@ -89,6 +90,10 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+" OS X Clipboard Integration
+set clipboard=unnamed
+" Disable noise
+set vb
 
 " ====================
 " Variable indentation
@@ -109,6 +114,7 @@ endfunction
 set softtabstop=2
 set tabstop=2
 set shiftwidth=2
+set expandtab
 " Python code
 autocmd FileType python call IndentWithSpaces(4)
 
@@ -123,7 +129,7 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 nnoremap j gj
 nnoremap k gk
 " Use ESC to kill search highlights
-nnoremap <Leader><Esc> :nohlsearch<Return>
+"nnoremap <Leader><Esc> :nohlsearch<Return>
 " Double tap the leader to toggle hidden characters
 nnoremap <Leader><Leader> :set list!<Return>
 " Leader-enter to toggle word wrap
@@ -157,24 +163,11 @@ endif
 " Open new tab when entering new file
 let g:CommandTAcceptSelectionMap = '<C-t>'
 let g:CommandTAcceptSelectionTabMap = '<CR>'
+let g:CommandTCancelMap=['<ESC>','<C-c>']
 " Stop command-t showing me everything in my python environments
 set wildignore+=%*
 set wildignore+=*.pyc
 set wildignore+=node_modules
 set wildignore+=_build
+set wildignore+=_testdata
 
-
-" ========================================================================
-" Glitch fix: Up/Down to not work inside Command-T inside Vim inside tmux.
-" See: http://superuser.com/questions/237751/messed-up-keys-in-vim-when-running-inside-tmux
-" See: http://superuser.com/questions/401926/how-to-get-shiftarrows-and-ctrlarrows-working-in-vim-in-tmux/402084#402084
-" ========================================================================
-if &term =~ '^screen'
-	" tmux will send xterm-style keys when its xterm-keys option is on
-	execute "set <xUp>=\e[1;*A"
-	execute "set <xDown>=\e[1;*B"
-	execute "set <xRight>=\e[1;*C"
-	execute "set <xLeft>=\e[1;*D"
-	" This one key binding will make all arrow keys work properly
-	map <Esc>[B <Down>
-endif
