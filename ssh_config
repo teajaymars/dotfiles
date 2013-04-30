@@ -23,16 +23,19 @@ User okfn
 ### DGU Project ###
 ###################
 Host dgudev
-HostName co-dev1.dh.bytemark.co.uk
-User co
+  HostName co-dev1.dh.bytemark.co.uk
+  User co
+  ForwardAgent yes
 
 Host dgustaging
-HostName co-staging1.dh.bytemark.co.uk
-User co
+  HostName co-staging1.dh.bytemark.co.uk
+  User co
+  ForwardAgent yes
 
 Host dgulive
-HostName co-prod1.dh.bytemark.co.uk
-User co
+  HostName co-prod1.dh.bytemark.co.uk
+  User co
+  ForwardAgent yes
 
 ################################
 ###   My Physical Machines   ###
