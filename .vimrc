@@ -165,9 +165,11 @@ let g:CommandTAcceptSelectionMap = '<C-t>'
 let g:CommandTAcceptSelectionTabMap = '<CR>'
 let g:CommandTCancelMap=['<ESC>','<C-c>']
 " Stop command-t showing me everything in my python environments
+" Also affects :find
 set wildignore+=%*
 set wildignore+=*.pyc
 set wildignore+=node_modules
 set wildignore+=_build
 set wildignore+=_testdata
+set wildignore+=_site
 
