@@ -56,9 +56,19 @@ if $VIM_CRONTAB == 'true'
   set nowritebackup
 endif
 " Load Pathogen
-call pathogen#runtime_append_all_bundles() 
+try 
+  execute pathogen#infect() 
+catch /^Vim\%((\a\+)\)\=:E117/
+  echo "* Pathogen not found. No bundles installed. Fresh environment?"
+endtry
 " Colorscheme
-colorscheme tomokai
+try
+  colorscheme tomokai
+catch /^Vim\%((\a\+)\)\=:E185/
+  echo "* Tomokai colourscheme not found. Falling back to Desert."
+  colorscheme desert
+endtry
+
 " Highlight syntax
 syntax on
 " Don't highlight very long lines (it ruins performance)
