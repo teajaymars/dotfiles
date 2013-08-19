@@ -1,11 +1,6 @@
 ##########
 ## PATH ##
 ##########
-## TODO disabled until proven necessary
-# MySQL binaries
-## export PATH="/usr/local/mysql/bin:$PATH"
-# Postgres binaries
-## export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 # Node binaries
 export PATH="/usr/local/share/npm/bin:$PATH"
 
@@ -81,4 +76,3 @@ set -o vi
 
 # Use the Ubuntu default prompt
 export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
-
