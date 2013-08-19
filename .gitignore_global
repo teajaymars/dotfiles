@@ -1,7 +1,4 @@
 .DS_Store
-*.tom
-%*
-ckan.log
 *.pyc
-.npmignore
-_build
+node_modules
+%*
