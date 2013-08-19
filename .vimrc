@@ -46,7 +46,6 @@ if has("autocmd")
   augroup END
 endif 
 
-
 " ===================
 " Tom Editor Settings
 " ===================
@@ -145,10 +144,8 @@ nnoremap <Leader><Leader> :set list!<Return>
 " Leader-enter to toggle word wrap
 set nowrap
 nnoremap <Leader><Return> :set wrap!<Return>
-" Split window
-" nnoremap <Leader>s :belowright vnew<Return>
 " Flush the command-t buffer
-nnoremap <Leader>f :CommandTFlush<Return>
+nnoremap <Leader>f :CtrlPClearAllCaches<Return>
 " Handle tabbing
 nnoremap <Leader>q :tabp<Return>
 nnoremap <Leader>w :tabn<Return>
@@ -167,19 +164,23 @@ if has('gui_running')
   set columns=140
 endif
 
-" =================
-" Plugin: Command-T
-" =================
-" Open new tab when entering new file
-let g:CommandTAcceptSelectionMap = '<C-t>'
-let g:CommandTAcceptSelectionTabMap = '<CR>'
-let g:CommandTCancelMap=['<ESC>','<C-c>']
-" Stop command-t showing me everything in my python environments
-" Also affects :find
+" Stop ctrlp/commandt/:find showing me rubbish
 set wildignore+=%*
 set wildignore+=*.pyc
 set wildignore+=node_modules
 set wildignore+=_build
 set wildignore+=_testdata
 set wildignore+=_site
+
+" ==============
+" Plugin: Ctrl-P
+" ==============
+" Open in new tab when entering a new file
+let g:ctrlp_prompt_mappings = {
+  \ 'AcceptSelection("e")': [],
+  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
+  \ }
+" Use the current working directory rather than being clever
+let g:ctrlp_working_path_mode = ''
+
 
