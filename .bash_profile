@@ -6,6 +6,8 @@
 ## export PATH="/usr/local/mysql/bin:$PATH"
 # Postgres binaries
 ## export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+# Node binaries
+export PATH="/usr/local/share/npm/bin:$PATH"
 
 #################
 ## ENVIRONMENT ##
