@@ -15,6 +15,8 @@ export EDITOR=vim
 #############
 # I never remember how to open finder from the terminal
 alias finder='open'
+# I never remember how useful this mac command is
+alias spotlight='mdfind'
 # I never remember how to access the clipboard
 alias clipboard='pbcopy'
 # Use a colour terminal
@@ -29,7 +31,7 @@ alias mvim="open -a MacVim.app"
 # Edit my crontable with Vim
 alias crontab='VIM_CRONTAB=true crontab'
 # Common git alias list
-alias gs='git status -s'
+alias gss='git status -s'
 alias gd='git diff'
 alias ga='git add'
 alias gcm='git commit -m'
