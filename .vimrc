@@ -1,8 +1,32 @@
+" ===================
+" Vundle Boilderplate
+" ===================
+" Forget vi compatibility. Must be first: Side effects change subsequent options.
+set nocompatible
+filetype off                   " required for Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+" My Bundles here:
+" ----------------
+" * Add new github repositories below.
+"   * If owned by "vim-scripts", omit the name
+" * Hit <Leader>sv to relad
+" * Run :BundleInstall to integrate
+Bundle 'fholgado/minibufexpl.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'othree/html5.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'rodjek/vim-puppet'
+Bundle 'tsaleh/vim-matchit'
+" ----------------
+filetype plugin indent on     " required for Vundle
 " ===============
 " Vim Boilerplate
 " ===============
-" Forget vi compatibility. Must be first: Side effects change subsequent options.
-set nocompatible
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 " Keep a backup file
@@ -31,8 +55,6 @@ if has('mouse')
 endif
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-  " Enable file type detection.
-  filetype plugin indent on
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
     au!
@@ -54,12 +76,6 @@ if $VIM_CRONTAB == 'true'
   set nobackup
   set nowritebackup
 endif
-" Load Pathogen
-try 
-  execute pathogen#infect() 
-catch /^Vim\%((\a\+)\)\=:E117/
-  echo "* Pathogen not found. No bundles installed. Fresh environment?"
-endtry
 " Colorscheme
 try
   colorscheme tomokai
@@ -85,12 +101,7 @@ au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 " Custom filetype mappings
-au BufNewFile,BufRead *.article set filetype=html
-au BufNewFile,BufRead *.less set filetype=less
-au BufNewFile,BufRead *.coffee set filetype=coffee
 au BufNewFile,BufRead *.cls set filetype=tex
-au BufNewFile,BufRead *.styl set filetype=stylus
-au BufNewFile,BufRead *.hbs set filetype=html
 au BufNewFile,BufRead *.md set filetype=markdown
 " Autocompletion
 autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -137,19 +148,11 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 " When line-wrapping, move by SCREEN line not by FILE line
 nnoremap j gj
 nnoremap k gk
-" Use ESC to kill search highlights
-"nnoremap <Leader><Esc> :nohlsearch<Return>
 " Double tap the leader to toggle hidden characters
 nnoremap <Leader><Leader> :set list!<Return>
 " Leader-enter to toggle word wrap
 set nowrap
 nnoremap <Leader><Return> :set wrap!<Return>
-" Flush the command-t buffer
-nnoremap <Leader>f :CtrlPClearAllCaches<Return>
-" Handle tabbing
-nnoremap <Leader>q :tabp<Return>
-nnoremap <Leader>w :tabn<Return>
-nnoremap <Leader>n :tabnew<Return>
 
 " ===============
 " Macvim settings
@@ -175,12 +178,25 @@ set wildignore+=_site
 " ==============
 " Plugin: Ctrl-P
 " ==============
-" Open in new tab when entering a new file
-let g:ctrlp_prompt_mappings = {
-  \ 'AcceptSelection("e")': [],
-  \ 'AcceptSelection("t")': ['<cr>', '<c-m>'],
-  \ }
-" Use the current working directory rather than being clever
+let g:ctrlp_cmd = 'CtrlPMRUFiles'
 let g:ctrlp_working_path_mode = ''
 
+" Playing with splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+" Split in a sensible direction
+set splitbelow
+set splitright
+" Dont worry about hiding modified buffers
+set hidden
 
+" Better command line editing
+cnoremap <C-j> <t_kd>
+cnoremap <C-k> <t_ku>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" Show current file in NERDTree
+map <C-n> :NERDTreeToggle<CR>
