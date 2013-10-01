@@ -22,6 +22,7 @@ Bundle 'othree/html5.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'rodjek/vim-puppet'
 Bundle 'tsaleh/vim-matchit'
+Bundle 'zephod/molokai'
 " ----------------
 filetype plugin indent on     " required for Vundle
 " ===============
