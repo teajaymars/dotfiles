@@ -13,18 +13,25 @@ Bundle 'gmarik/vundle'
 "   * If owned by "vim-scripts", omit the name
 " * Hit <Leader>sv to relad
 " * Run :BundleInstall to integrate
-Bundle 'fholgado/minibufexpl.vim'
 Bundle 'scrooloose/nerdtree'
-Bundle 'vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'othree/html5.vim'
 Bundle 'godlygeek/tabular'
-Bundle 'rodjek/vim-puppet'
 Bundle 'tsaleh/vim-matchit'
 Bundle 'zephod/molokai'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-surround'
+" -- language plugins
+Bundle 'vim-coffee-script'
+Bundle 'othree/html5.vim'
+Bundle 'groenewege/vim-less'
+Bundle 'rodjek/vim-puppet'
+Bundle 'java.vim'
+Bundle 'groovy.vim'
 " ----------------
 filetype plugin indent on     " required for Vundle
+" Powerline plugin
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 " ===============
 " Vim Boilerplate
 " ===============
@@ -97,6 +104,8 @@ set number
 set linebreak
 " I really like seeing these characters sometimes
 set listchars=tab:▸\ ,eol:¬
+" Autocompletion mode: Search local,buffers,unloadedBuffers,Tags
+set complete=.,b,u,]
 " Highlight cursor line/column
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
@@ -196,8 +205,19 @@ set hidden
 " Better command line editing
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
+cnoremap <C-a>  <Home>
+cnoremap <C-b>  <Left>
+cnoremap <C-f>  <Right>
+cnoremap <C-d>  <Delete>
+cnoremap <M-b>  <S-Left>
+cnoremap <M-f>  <S-Right>
+cnoremap <M-d>  <S-right><Delete>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
+cnoremap <Esc>d <S-right><Delete>
+cnoremap <C-g>  <C-c>
 
 " Show current file in NERDTree
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeMapOpenVSplit='<C-v>'
+let NERDTreeMapOpenSplit='<C-x>'
