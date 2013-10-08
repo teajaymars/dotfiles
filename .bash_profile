@@ -3,6 +3,8 @@
 ##########
 # Node binaries
 export PATH="/usr/local/share/npm/bin:$PATH"
+# Python binaries
+export PATH="/usr/local/share/python:$PATH"
 
 #################
 ## ENVIRONMENT ##
@@ -25,9 +27,6 @@ alias ll='ls -l'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-# Use macvim from the command line
-alias mvim="open -a MacVim.app"
-#alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 # Edit my crontable with Vim
 alias crontab='VIM_CRONTAB=true crontab'
 # Common git alias list
@@ -37,7 +36,6 @@ alias ga='git add'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
-alias pc='paster --plugin=ckan'
 
 #########
 # MARKS #
@@ -72,9 +70,6 @@ fi
 findext() {
   find . -name \*.$1
 }
-
-# Interact with Bash in Vim mode
-set -o vi
 
 # Use the Ubuntu default prompt
 export PS1="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ "
