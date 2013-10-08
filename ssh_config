@@ -1,27 +1,32 @@
 ###################
 ### DGU Project ###
 ###################
-Host dgudev
+Host dev1
   HostName co-dev1.dh.bytemark.co.uk
   User co
   ForwardAgent yes
 
-Host dguuat
+Host uat1
   HostName co-uat1.dh.bytemark.co.uk
   User co
   ForwardAgent yes
 
-Host dgustaging
+Host staging1
   HostName co-staging1.dh.bytemark.co.uk
   User co
   ForwardAgent yes
 
-Host dgulive
+Host staging2
+  HostName co-staging2.dh.bytemark.co.uk
+  User co
+  ForwardAgent yes
+
+Host prod1
   HostName co-prod1.dh.bytemark.co.uk
   User co
   ForwardAgent yes
 
-Host dgunew
+Host prod3
   Hostname co-prod3.dh.bytemark.co.uk
   User co
   ForwardAgent yes
