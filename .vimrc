@@ -18,6 +18,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'godlygeek/tabular'
 Bundle 'tsaleh/vim-matchit'
+Bundle 'mileszs/ack.vim'
+Bundle 'docunext/closetag.vim'
 Bundle 'zephod/molokai'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-surround'
@@ -32,6 +34,8 @@ Bundle 'groovy.vim'
 filetype plugin indent on     " required for Vundle
 " Powerline plugin
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+let g:ragtag_global_maps = 1
+au BufEnter * if !exists('b:powerline_ctrlp_type') | let b:powerline_ctrlp_type = 'main' | endif
 " ===============
 " Vim Boilerplate
 " ===============
@@ -169,13 +173,19 @@ nnoremap <Leader><Return> :set wrap!<Return>
 " ===============
 if has('gui_running')
   " Font settings
-  set guifont=Consolas:h12
-  set fuoptions=background:#ff111111
+  set guifont=Monaco_for_Powerline:h13
+  "set fuoptions=background:#ff111111
   set guioptions-=T " Remove the toolbar
+  set guioptions-=L " Remove the left scrollbar
+  set guioptions-=r " Remove the right scrollbar
   " Window size
   set lines=44
   set columns=140
 endif
+
+" iTerm integration
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Stop ctrlp/commandt/:find showing me rubbish
 set wildignore+=%*
