@@ -26,6 +26,11 @@ Host prod1
   User co
   ForwardAgent yes
 
+Host prod2
+  HostName co-prod2.dh.bytemark.co.uk
+  User co
+  ForwardAgent yes
+
 Host prod3
   Hostname co-prod3.dh.bytemark.co.uk
   User co
@@ -54,7 +59,7 @@ Host aws1
 ###   My Physical Machines   ###
 ################################
 Host appletv
-HostName 192.168.0.111
+HostName 192.168.1.111
 User root
 
 Host blackpi
