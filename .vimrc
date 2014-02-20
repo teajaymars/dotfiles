@@ -110,6 +110,8 @@ set linebreak
 set listchars=tab:▸\ ,eol:¬
 " Autocompletion mode: Search local,buffers,unloadedBuffers,Tags
 set complete=.,b,u,]
+" SUPER USEFUL make macros go fast again
+set lazyredraw
 " Highlight cursor line/column
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
