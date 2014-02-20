@@ -48,11 +48,9 @@ Host wp2
 ###########
 ### AWS ###
 ###########
-Host aws1
-  HostName aws1.zephod.com
-  User co
-  #User ubuntu
-  #IdentityFile ~/.ssh/aws1zephodcom.pem
+Host am1
+  HostName am1.cloudckan.com
+  User ckan
   ForwardAgent yes
 
 ################################
