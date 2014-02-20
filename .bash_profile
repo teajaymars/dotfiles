@@ -1,3 +1,9 @@
+############
+## LOCALE ##
+############
+# Fixes broken Vim on Ubuntu
+export LC_ALL=$LANG
+
 ##########
 ## PATH ##
 ##########
