@@ -53,31 +53,30 @@ Host am1
   User ckan
   ForwardAgent yes
 
+Host node1
+  #HostName am3.cloudckan.com
+  HostName 54.72.223.233
+  User ubuntu
+  IdentityFile ~/.ssh/littleredideas.pem
+
 ################################
 ###   My Physical Machines   ###
 ################################
 Host appletv
-HostName 192.168.1.111
+HostName 192.168.1.5
 User root
 
-Host blackpi
-HostName cam.zephod.com
+Host legopi
+HostName raspberrypi
 User pi
-Port 80
+ForwardAgent yes
 
-Host bluepi
-HostName 192.168.0.114
+Host shedpi
+HostName 192.168.1.19
 User pi
+ForwardAgent yes
 
 Host tomato
 Hostname router
-User root
-
-Host powerbook
-Hostname 192.168.0.18
-User zephod
-
-Host orac
-Hostname 192.168.1.64
-User zephod
+User admin
 
