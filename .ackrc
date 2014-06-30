@@ -7,3 +7,4 @@ html=.hbs
 
 --ignore-dir=node_modules
 --ignore-dir=%ibp
+--ignore-dir=i18n
