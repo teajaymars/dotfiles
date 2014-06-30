@@ -1,37 +1,40 @@
 " ===================
 " Vundle Boilderplate
 " ===================
+" DONT FORGET TO RUN:
+"   git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 " Forget vi compatibility. Must be first: Side effects change subsequent options.
 set nocompatible
 filetype off                   " required for Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/vundle'
 " My Bundles here:
 " ----------------
 " * Add new github repositories below.
 "   * If owned by "vim-scripts", omit the name
 " * Hit <Leader>sv to relad
 " * Run :BundleInstall to integrate
-Bundle 'scrooloose/nerdtree'
-Bundle 'kien/ctrlp.vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'godlygeek/tabular'
-Bundle 'tmhedberg/matchit'
-Bundle 'mileszs/ack.vim'
-Bundle 'docunext/closetag.vim'
-Bundle 'zephod/molokai'
-Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-surround'
-Bundle 'junegunn/goyo.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'godlygeek/tabular'
+Plugin 'tmhedberg/matchit'
+Plugin 'mileszs/ack.vim'
+Plugin 'docunext/closetag.vim'
+Plugin 'zephod/molokai'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-surround'
+Plugin 'junegunn/goyo.vim'
 " -- language plugins
-Bundle 'vim-coffee-script'
-Bundle 'othree/html5.vim'
-Bundle 'groenewege/vim-less'
-Bundle 'rodjek/vim-puppet'
-Bundle 'java.vim'
-Bundle 'groovy.vim'
+Plugin 'vim-coffee-script'
+Plugin 'othree/html5.vim'
+Plugin 'groenewege/vim-less'
+Plugin 'rodjek/vim-puppet'
+Plugin 'java.vim'
+Plugin 'groovy.vim'
 " ----------------
+call vundle#end()
 filetype plugin indent on     " required for Vundle
 " Powerline plugin
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
