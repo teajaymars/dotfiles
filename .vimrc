@@ -98,7 +98,6 @@ endif
 try
   colorscheme tomokai
 catch /^Vim\%((\a\+)\)\=:E185/
-  echo "* Tomokai colourscheme not found. Falling back to Desert."
   colorscheme desert
 endtry
 
