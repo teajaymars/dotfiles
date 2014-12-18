@@ -18,6 +18,7 @@ Plugin 'gmarik/vundle'
 " * Hit <Leader>sv to relad
 " * Run :BundleInstall to integrate
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'godlygeek/tabular'
@@ -26,8 +27,16 @@ Plugin 'mileszs/ack.vim'
 Plugin 'docunext/closetag.vim'
 Plugin 'zephod/molokai'
 Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-unimpaired'
+" Requires: sudo pip install nose, nose_machineout, vim_bridge
+Plugin 'nvie/vim-pyunit'
+"Plugin 'tpope/vim-surround'
 Plugin 'junegunn/goyo.vim'
+"Plugin 'klen/rope-vim'
+"Plugin 'reinh/vim-makegreen'
+"Plugin 'lambdalisue/nose.vim'
+" -- Tmux
+Plugin 'christoomey/vim-tmux-navigator'
 " -- language plugins
 Plugin 'vim-coffee-script'
 Plugin 'othree/html5.vim'
@@ -42,6 +51,8 @@ filetype plugin indent on     " required for Vundle
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 let g:ragtag_global_maps = 1
 au BufEnter * if !exists('b:powerline_ctrlp_type') | let b:powerline_ctrlp_type = 'main' | endif
+" MakeGreen plugin
+" let g:makegreen_stay_on_file = 1
 " ===============
 " Vim Boilerplate
 " ===============
@@ -166,6 +177,7 @@ autocmd FileType python call IndentWithSpaces(4)
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
+" nmap <silent> <C-m> :MakeGreen test_%<CR>
 " When line-wrapping, move by SCREEN line not by FILE line
 nnoremap j gj
 nnoremap k gk
@@ -199,8 +211,7 @@ set wildignore+=%*
 set wildignore+=*.pyc
 set wildignore+=node_modules
 set wildignore+=_build
-set wildignore+=_testdata
-set wildignore+=_site
+set wildignore+=_dist
 
 " ==============
 " Plugin: Ctrl-P
@@ -218,6 +229,8 @@ set splitbelow
 set splitright
 " Dont worry about hiding modified buffers
 set hidden
+" Show me tab-based autocomplete in command mode
+set wildmenu
 
 " Better command line editing
 cnoremap <C-j> <t_kd>
@@ -238,3 +251,22 @@ cnoremap <C-g>  <C-c>
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMapOpenVSplit='<C-v>'
 let NERDTreeMapOpenSplit='<C-x>'
+let NERDTreeIgnore=['\.pyc$']
+
+" PyUnit
+let PyUnitCmd = "nosetests --quiet --with-doctest --logging-filter=-paramiko,-selenium --attr='!slow' --with-machineout"
+let PyUnitTestsSplitWindow = 'no'
+let PyUnitShowTests = 0
+
+" Syntastic
+let g:syntastic_python_checkers = ['python','pyflakes']
+let g:syntastic_enable_signs = 1
+let g:syntastic_always_populate_loc_list=1
+" let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open = 1
+" let g:syntastic_python_checkers = ['flake8']
+
+" Python Debug
+au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
+au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
+
