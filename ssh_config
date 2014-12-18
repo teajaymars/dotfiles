@@ -1,3 +1,13 @@
+#################
+### DataPress ###
+#################
+Host s21
+  HostName s21
+  User ckan
+Host s22
+  HostName s22
+  User ckan
+
 ###################
 ### DGU Project ###
 ###################
