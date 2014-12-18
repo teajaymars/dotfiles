@@ -3,3 +3,5 @@
 node_modules
 %*
 .ipynb_checkpoints
+*.egg-info
+~$*
