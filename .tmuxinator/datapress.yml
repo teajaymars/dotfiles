@@ -1,0 +1,32 @@
+# ~/.tmuxinator/datapress.yml
+
+name: datapress
+root: ~/code/dp/datapress
+
+# Optional tmux socket
+# socket_name: foo
+
+# Runs before everything. Use it to start daemons etc.
+pre: cd ~/code/dp/cookbooks && vagrant up && cd -
+
+# Runs in each window and pane before window/pane specific commands. Useful for setting up interpreter versions.
+# pre_window: rbenv shell 2.0.0-p247
+
+# Pass command line options to tmux. Useful for specifying a different tmux.conf.
+# tmux_options: -f ~/.tmux.mac.conf
+
+# Change the command to call tmux.  This can be used by derivatives/wrappers like byobu.
+# tmux_command: byobu
+#
+#
+#
+
+windows:
+  - editor:
+      layout: ca29,204x51,0,0[204x32,0,0,20,204x18,0,33{122x18,0,33[122x9,0,33,22,122x8,0,43,23],81x18,123,33,24}]      
+      panes:
+        - vim
+        - #
+        - #
+        - cd ../cookbooks && vagrant ssh
+  - etc: #
