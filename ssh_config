@@ -1,92 +1,54 @@
+# Stop disconnecting me
+ServerAliveInterval 30
+
 #################
 ### DataPress ###
 #################
-Host s21
-  HostName s21
+Host s10
+  HostName s10.datapress.io
   User ckan
+  ForwardAgent yes
 Host s22
-  HostName s22
+  HostName s22.datapress.io
   User ckan
-
-###################
-### DGU Project ###
-###################
-Host dev1
-  HostName co-dev1.dh.bytemark.co.uk
-  User co
+Host s23
+  HostName s23.datapress.io
+  User ckan
+Host s24
+  HostName s24.datapress.io
+  User ckan
   ForwardAgent yes
-
-Host uat1
-  HostName co-uat1.dh.bytemark.co.uk
-  User co
-  ForwardAgent yes
-
-Host staging1
-  HostName co-staging1.dh.bytemark.co.uk
-  User co
-  ForwardAgent yes
-
-Host staging2
-  HostName co-staging2.dh.bytemark.co.uk
-  User co
-  ForwardAgent yes
+Host s25
+  HostName s25.datapress.io
+  User ckan
 
 Host prod1
-  HostName co-prod1.dh.bytemark.co.uk
-  User co
-  ForwardAgent yes
+  HostName 54.77.60.238
+  User tom
 
-Host prod2
-  HostName co-prod2.dh.bytemark.co.uk
-  User co
-  ForwardAgent yes
+	
 
-Host prod3
-  Hostname co-prod3.dh.bytemark.co.uk
-  User co
-  ForwardAgent yes
-
-#################
-### Rackspace ###
-#################
-Host wp2
-  HostName wp2.forrestyogalondon.com
-  User root
-  IdentityFile ~/.ssh/id_wp2
-  ForwardAgent yes
 
 ###########
-### AWS ###
-###########
-Host am1
-  HostName am1.cloudckan.com
-  User ckan
-  ForwardAgent yes
+### OLD LEEDS MACHINES 
+##########
+#
+Host leedsstagingdb
+     Hostname 141.170.6.136
+     User ldmuser
+     ForwardAgent yes
 
-Host node1
-  #HostName am3.cloudckan.com
-  HostName 54.72.223.233
-  User ubuntu
-  IdentityFile ~/.ssh/littleredideas.pem
+Host leedslivedb
+     Hostname 141.170.6.137
+     User ldmuser
+     ForwardAgent yes
 
-################################
-###   My Physical Machines   ###
-################################
-Host appletv
-HostName 192.168.1.5
-User root
+Host leedsstagingweb
+     Hostname 141.170.6.134
+     User ldmuser
+     ForwardAgent yes
 
-Host legopi
-HostName raspberrypi
-User pi
-ForwardAgent yes
-
-Host shedpi
-HostName 192.168.1.19
-User pi
-ForwardAgent yes
-
-Host tomato
-Hostname router
-User admin
-
+Host leedsliveweb
+     Hostname 141.170.6.135
+     User ldmuser
+     ForwardAgent yes

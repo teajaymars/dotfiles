@@ -6,3 +6,5 @@ node_modules
 *.egg-info
 ~$*
 _ignore
+.sass-cache
+Gemfile.lock

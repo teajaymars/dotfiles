@@ -75,6 +75,8 @@ set ignorecase
 set smartcase
 " Don't use Ex mode, use Q for formatting
 map Q gq
+
+let mapleader="\<Space>"
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
@@ -169,6 +171,7 @@ set shiftwidth=2
 set expandtab
 " Python code
 autocmd FileType python call IndentWithSpaces(4)
+autocmd FileType coffee call IndentWithSpaces(4)
 
 
 " =============
@@ -186,6 +189,14 @@ nnoremap <Leader><Leader> :set list!<Return>
 " Leader-enter to toggle word wrap
 set nowrap
 nnoremap <Leader><Return> :set wrap!<Return>
+" Leader-y to yank-append
+nnoremap <Leader>y @".getline('.')
+" http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+nnoremap <Leader>w :w<CR>
+vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+    \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+omap s :normal vs<CR>
+nnoremap <silent> p p`]
 
 " ===============
 " Macvim settings
@@ -259,7 +270,7 @@ cnoremap <C-g>  <C-c>
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMapOpenVSplit='<C-v>'
 let NERDTreeMapOpenSplit='<C-x>'
-let NERDTreeIgnore=['\.pyc$']
+let NERDTreeIgnore=['\.pyc$',"nodes"]
 
 " PyUnit
 let PyUnitCmd = "nosetests --quiet --with-doctest --logging-filter=-paramiko,-selenium --attr='!slow' --with-machineout"
@@ -277,4 +288,9 @@ let g:syntastic_check_on_open = 1
 " Python Debug
 au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
 au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
+
+" TODO Cycle backgrond between shade 17, 22, and 52, and 234
+
+nnoremap <Leader>c :hi Normal ctermbg=17<Return>
+nnoremap <Leader>c :hi Normal ctermbg=17<Return>
 
