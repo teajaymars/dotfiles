@@ -1,5 +1,6 @@
 scriptencoding utf-8
 set encoding=utf-8
+set shell=/bin/bash
 " ===================
 " Vundle Boilderplate
 " ===================
@@ -44,6 +45,10 @@ Plugin 'groenewege/vim-less'
 Plugin 'rodjek/vim-puppet'
 Plugin 'java.vim'
 Plugin 'groovy.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'pmsorhaindo/syntastic-local-eslint.vim'
+
 " ----------------
 call vundle#end()
 filetype plugin indent on     " required for Vundle
@@ -279,18 +284,24 @@ let PyUnitShowTests = 0
 
 " Syntastic
 let g:syntastic_python_checkers = ['python','pyflakes']
+let g:syntastic_javascript_checkers = ['eslint']
+
 let g:syntastic_enable_signs = 1
 let g:syntastic_always_populate_loc_list=1
 " let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open = 1
-" let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_full_redraws = 1
 
 " Python Debug
 au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
 au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
+map <silent> <leader>> OXXX DataPress Patch >>><esc>gcc
+map <silent> <leader>< o<<< DataPress Patch XXX<esc>gcckk
 
 " TODO Cycle backgrond between shade 17, 22, and 52, and 234
 
 nnoremap <Leader>c :hi Normal ctermbg=17<Return>
 nnoremap <Leader>c :hi Normal ctermbg=17<Return>
 
+
+let g:jsx_ext_required = 0
