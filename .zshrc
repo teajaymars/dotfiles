@@ -107,11 +107,11 @@ alias gcam='git commit -a -m'
 export CFLAGS=-Qunused-arguments export CPPFLAGS=-Qunused-arguments
 
 # Tmuxinator setup
-export EDITOR=vim
+export EDITOR=nvim
 # source ~/.bin/tmuxinator.zsh
 alias ts="tmuxinator start"
 alias tsd="tmuxinator start datapress"
-alias ff="fab -H ckan@vm"
+alias vim="nvim"
 
 # Override some ridiculous global default I can't see
 export VAGRANT_DEFAULT_PROVIDER=virtualbox
