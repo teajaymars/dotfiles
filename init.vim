@@ -208,28 +208,53 @@ function! s:JumpWithWrap( direction, opposite )
   endif
 endfunction
 
+
+" =============================
+" Window mappings (normal mode)
+" =============================
+" Standard window-jump mappings
 nnoremap <silent> <C-h> :<C-u>call <SID>JumpWithWrap('h', 'l')<CR>
 nnoremap <silent> <C-j> :<C-u>call <SID>JumpWithWrap('j', 'k')<CR>
 nnoremap <silent> <C-k> :<C-u>call <SID>JumpWithWrap('k', 'j')<CR>
 nnoremap <silent> <C-l> :<C-u>call <SID>JumpWithWrap('l', 'h')<CR>
+" Standard window-resize mappings
+nnoremap <C-Down>  :resize -5<cr>
+nnoremap <C-Up>    :resize +5<cr>
+nnoremap <C-Left>  :vertical resize -5<cr>
+nnoremap <C-Right> :vertical resize +5<cr>
+" Standard window-split mappings
+nnoremap <C-w>-  :new<cr>:term<cr>
+nnoremap <C-w>\| :vnew<cr>:term<cr>
+" Seldom used, except by other shortcuts:
+nnoremap <C-w>! :redraw!<cr>
 
-" Resize window.
-nnoremap “ :resize -5<cr>
-nnoremap ‘ :resize +5<cr>
-nnoremap <C-[> :vertical resize -5<cr>
-nnoremap <C-]> :vertical resize +5<cr>
+map <esc>[1;5D <C-Left>
+map <esc>[1;5C <C-Right>
 
-" NeoVim terminal emulator
-tnoremap <silent> <C-h> <C-\><C-n>:<C-u>call <SID>JumpWithWrap('h', 'l')<CR>:redraw!<CR>
-tnoremap <silent> <C-j> <C-\><C-n>:<C-u>call <SID>JumpWithWrap('j', 'k')<CR>:redraw!<CR>
-tnoremap <silent> <C-k> <C-\><C-n>:<C-u>call <SID>JumpWithWrap('k', 'j')<CR>:redraw!<CR>
-tnoremap <silent> <C-l> <C-\><C-n>:<C-u>call <SID>JumpWithWrap('l', 'h')<CR>:redraw!<CR>
-tnoremap “     <C-\><C-n>:resize -5<cr>i
-tnoremap ‘     <C-\><C-n>:resize +5<cr>i
-tnoremap <C-[> <C-\><C-n>:vertical resize -5<cr>i
-tnoremap <C-]> <C-\><C-n>:vertical resize +5<cr>i
-" autocmd BufWinEnter,WinEnter term://* startinsert
-" autocmd BufLeave term://* stopinsert
+" ==========================================
+" Window mappings (NeoVim terminal emulator)
+" ==========================================
+" Standard window-jump mappings (with redraw to fix status line)
+tmap <silent> <C-h> <C-\><C-n><C-h><C-w>!
+tmap <silent> <C-j> <C-\><C-n><C-j><C-w>!
+tmap <silent> <C-k> <C-\><C-n><C-k><C-w>!
+tmap <silent> <C-l> <C-\><C-n><C-l><C-w>!
+" Standard window-resize mappings
+tmap <C-Down>  <C-\><C-n><C-Down>i
+tmap <C-Up>    <C-\><C-n><C-Up>i
+tmap <C-Left>  <C-\><C-n><C-Left>i
+tmap <C-Right> <C-\><C-n><C-Right>i
+" Standard window-split mappings
+tmap <C-w>-  <C-\><C-n><C-w>-<cr>
+tmap <C-w>\| <C-\><C-n><C-w>\|<cr>
+" Seldom used, except by other shortcuts:
+tnoremap <C-w>! <C-\><C-n>:redraw!<cr>i
+" Doubletap <C-w> to escape the terminal
+tnoremap <C-w><C-w> <C-\><C-n>
+" Automatically jump into insert mode in terminals
+autocmd BufWinEnter,WinEnter term://* startinsert
+autocmd BufLeave term://* stopinsert
+autocmd TermClose term://.* stopinsert
 
 " Python Debug
 au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
