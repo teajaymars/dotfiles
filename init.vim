@@ -279,3 +279,9 @@ cnoremap <Esc>b <S-Left>
 cnoremap <Esc>f <S-Right>
 cnoremap <Esc>d <S-right><Delete>
 cnoremap <C-g>  <C-c>
+
+" Automatically clean any ESLint syntax errors
+function! FixThisFile()
+  execute "!".b:syntastic_javascript_eslint_exec." --fix %"
+endfunction
+autocmd FileType javascript map <leader>f :call FixThisFile()<CR>
