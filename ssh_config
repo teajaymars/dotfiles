@@ -4,6 +4,9 @@ ServerAliveInterval 30
 #################
 ### DataPress ###
 #################
+Host api
+  HostName 52.50.102.193
+  user ckan
 Host s10
   HostName s10.datapress.io
   User ckan
@@ -24,6 +27,10 @@ Host s25
 
 Host prod1
   HostName 54.77.60.238
+  User tom
+
+Host staging
+  HostName 52.17.142.92
   User tom
 
 	

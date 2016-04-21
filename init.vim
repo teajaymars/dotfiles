@@ -47,6 +47,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 " Syntastic: Use `eslint` from `node_modules`
 Plug 'pmsorhaindo/syntastic-local-eslint.vim'
+" Experimental plugins for test-driven development
+Plug 'zephod/vim-test'
 call plug#end()
 
 " ==============
@@ -64,7 +66,8 @@ set wildignore+=_dist
 " ================
 " PLUGIN: NerdTree
 " ================
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
+"tnoremap <C-n> <C-\><C-n>:NERDTreeToggle<CR>
 let NERDTreeMapOpenVSplit='<C-v>'
 let NERDTreeMapOpenSplit='<C-x>'
 let NERDTreeIgnore=['\.pyc$',"nodes"]
@@ -88,6 +91,11 @@ let g:syntastic_always_populate_loc_list=1
 " let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open = 1
 let g:syntastic_full_redraws = 1
+
+" ============
+" PLUGIN: Test
+" ============
+let test#strategy = "neovim"
 
 " ============
 " CORE: NEOVIM
@@ -129,15 +137,6 @@ au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 set cursorline cursorcolumn
 
-" TODO not sure whether these are worth paying attention to.
-" " Autocompletion
-" autocmd FileType python set omnifunc=pythoncomplete#Complete
-" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-" autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-" autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-" autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-
 " ====================
 " Variable indentation
 " ====================
@@ -163,6 +162,9 @@ set expandtab
 " Python code
 autocmd FileType python call IndentWithSpaces(4)
 autocmd FileType coffee call IndentWithSpaces(4)
+
+" ES6 code
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
 " Don't wrap by default
 set nowrap
@@ -257,7 +259,7 @@ tnoremap <C-w><C-w> <C-\><C-n>
 " Automatically jump into insert mode in terminals
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
-autocmd TermClose term://.* stopinsert
+" autocmd TermClose term://.* bdelete!
 
 " Python Debug
 au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
@@ -277,11 +279,23 @@ cnoremap <M-f>  <S-Right>
 cnoremap <M-d>  <S-right><Delete>
 cnoremap <Esc>b <S-Left>
 cnoremap <Esc>f <S-Right>
+
 cnoremap <Esc>d <S-right><Delete>
 cnoremap <C-g>  <C-c>
+
+
+" Test driven development
+nmap <silent> <leader>t :TestNearest<CR><C-\><C-n><C-w>p
+nmap <silent> <leader>T :TestFile<CR><C-\><C-n><C-w>p
+nmap <silent> <leader>a :TestSuite<CR><C-\><C-n><C-w>p
+nmap <silent> <leader>l :TestLast<CR><C-\><C-n><C-w>p
+nmap <silent> <leader>g :TestVisit<CR><C-\><C-n><C-w>p
 
 " Automatically clean any ESLint syntax errors
 function! FixThisFile()
   execute "!".b:syntastic_javascript_eslint_exec." --fix %"
 endfunction
 autocmd FileType javascript map <leader>f :call FixThisFile()<CR>
+
+" Incoming change... I get a lot of old SWP files hanging around when I crash.
+set noswapfile
