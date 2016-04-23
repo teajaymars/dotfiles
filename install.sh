@@ -8,6 +8,14 @@ git config --global user.email "zephod@gmail.com"
 git config --global core.excludesfile ~/.gitignore_global
 git config --global push.default simple
 
+echo "Fixing <C-h> / backspace confusion..."
+infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+tic $TERM.ti
+rm $TERM.ti
+
+# -- Install Node properly
+https://github.com/npm/npm/issues/3125#issuecomment-167163364
+
 echo "open vim and run :PlugInstall"
 
 # Update OSX Settings:
