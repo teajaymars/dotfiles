@@ -7,54 +7,12 @@ ServerAliveInterval 30
 Host api
   HostName 52.50.102.193
   user ckan
-Host s10
-  HostName s10.datapress.io
-  User ckan
-  ForwardAgent yes
-Host s22
-  HostName s22.datapress.io
-  User ckan
-Host s23
-  HostName s23.datapress.io
-  User ckan
-Host s24
-  HostName s24.datapress.io
-  User ckan
-  ForwardAgent yes
-Host s25
-  HostName s25.datapress.io
-  User ckan
-
 Host prod1
   HostName 54.77.60.238
   User tom
-
 Host staging
   HostName 52.17.142.92
   User tom
-
-	
-
-
-###########
-### OLD LEEDS MACHINES 
-##########
-#
-Host leedsstagingdb
-     Hostname 141.170.6.136
-     User ldmuser
-     ForwardAgent yes
-
-Host leedslivedb
-     Hostname 141.170.6.137
-     User ldmuser
-     ForwardAgent yes
-
-Host leedsstagingweb
-     Hostname 141.170.6.134
-     User ldmuser
-     ForwardAgent yes
-
 Host leedsliveweb
      Hostname 141.170.6.135
      User ldmuser
