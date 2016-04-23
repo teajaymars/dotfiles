@@ -1,5 +1,6 @@
 " Tips:
 " Search-and-replace with [visual, then cgn](http://vimcasts.org/episodes/operating-on-search-matches-using-gn/)
+"---
 " Note: <C-h> might be broken on OS X. Run the following commands in bash:
 "    infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
 "    tic $TERM.ti
@@ -300,3 +301,6 @@ autocmd FileType javascript map <leader>f :call FixThisFile()<CR>
 
 " Incoming change... I get a lot of old SWP files hanging around when I crash.
 set noswapfile
+
+" This is useful
+inoremap § #
