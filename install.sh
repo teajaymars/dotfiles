@@ -6,6 +6,7 @@ rm .git
 git config --global user.name "Tom Rees"
 git config --global user.email "zephod@gmail.com"
 git config --global core.excludesfile ~/.gitignore_global
+git config --global push.default simple
 
 echo "open vim and run :PlugInstall"
 
