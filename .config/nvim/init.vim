@@ -303,5 +303,7 @@ map <silent> <leader>< o<<< DataPress Patch XXX<esc>gcckk
 nnoremap <Leader>c :hi Normal ctermbg=17<Return>
 nnoremap <Leader>c :hi Normal ctermbg=17<Return>
 
+" Macbook Keyboard layout is stupid
+inoremap § #
 
 let g:jsx_ext_required = 0
