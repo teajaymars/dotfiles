@@ -25,7 +25,6 @@ export PATH=$PATH:/bin
 export PATH=$PATH:/usr/sbin
 export PATH=$PATH:/sbin
 export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/usr/local/share/python
 export PATH=$PATH:/usr/local/share/npm/bin
 export PATH=$PATH:/opt/chefdk/bin
 export PATH=$PATH:$GOPATH/bin
@@ -53,3 +52,8 @@ alias gcam='git commit -a -m'
 
 # I never remember how useful this mac command is
 alias spotlight='mdfind'
+
+LOCAL_INIT=~/.init.sh
+if [ -e $LOCAL_INIT ] ; then
+  source $LOCAL_INIT
+fi
