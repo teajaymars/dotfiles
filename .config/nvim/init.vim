@@ -6,6 +6,7 @@
 " 
 scriptencoding utf-8
 
+" Use :PlugInstall on first run
 call plug#begin()
 " Used to use unimpaired but I can't remember what the advantage was?
 " Plug 'tpope/vim-unimpaired'
