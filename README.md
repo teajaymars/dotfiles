@@ -12,7 +12,9 @@ Install packages.
 
 Set the scrollback on iTerm2 to infinity.
 
-Use OSX accessibility to remap CapsLock to Ctrl.
+Use OSX accessibility and keyboard settings:
+* Remap CapsLock to Ctrl
+* Remove all Ctrl-arrowkey shortcuts
 
 Overwrite their config with mine.
 
@@ -40,7 +42,3 @@ Fix neovim's confusion over the `<C-h>` shortcut, which sometimes becomes `<Back
 
     infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
     tic $TERM.ti
-
-Fix OSX's confusion over the `<C-up>` and other arrow keys.
-
-[fix_ctrl_arrow.png]
