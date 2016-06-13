@@ -50,8 +50,8 @@ alias ga='git add'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 
-# I never remember how useful this mac command is
-alias spotlight='mdfind'
+# I wrote this to kill old webpack-dev-servers
+alias rescue='ps -a -eo pid,command | grep "node.*webpack-dev-server" | grep -v grep | awk "{print \$1}" | xargs kill -9'
 
 LOCAL_INIT=~/.init.sh
 if [ -e $LOCAL_INIT ] ; then
