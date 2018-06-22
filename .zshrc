@@ -45,6 +45,16 @@ export ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
 #############################
 
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
+alias dc='docker-compose'
+dc-reboot() {
+  dc rm --stop --force -v $1
+  dc up -d --no-deps --build $1
+}
+dc-shell() {
+  ID=$(dc ps -q $1)
+  docker exec -it $ID sh
+}
+
 alias gl='git lg'
 alias gss='git status -s'
 alias gd='git diff'
