@@ -1,19 +1,6 @@
 # Stop disconnecting me
 ServerAliveInterval 30
 
-#################
-### DataPress ###
-#################
-Host api
-  HostName 52.50.102.193
-  user ckan
-Host prod1
-  HostName 54.77.60.238
-  User tom
-Host staging
-  HostName 52.17.142.92
-  User tom
-Host leedsliveweb
-     Hostname 141.170.6.135
-     User ldmuser
-     ForwardAgent yes
+Host legacyapiserver
+  HostName 52.18.117.89
+  User ckan
