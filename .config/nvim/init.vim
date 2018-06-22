@@ -13,44 +13,31 @@ call plug#begin()
 " Plug 'tpope/vim-unimpaired'
 " Ctrl-N is the best
 Plug 'scrooloose/nerdtree'
-" Syntax-checking and static analysis of code
-Plug 'scrooloose/syntastic'
 " Jump into files
 Plug 'kien/ctrlp.vim'
 " Give me a git overview of file changes
 Plug 'airblade/vim-gitgutter'
-" :Tab to tabularise some text
-Plug 'godlygeek/tabular'
-" Supposedly improves the % jump, but I don't see it
-Plug 'tmhedberg/matchit'
-" Call Ack from inside vim
-Plug 'mileszs/ack.vim'
 " Automatically closes your HTML
 Plug 'docunext/closetag.vim'
-" My custom colourscheme
-Plug 'zephod/molokai'
 " Allows Vgc, gcc, other kinds of commenting
 Plug 'tomtom/tcomment_vim'
-" Distraction-free writing mode
+" :Tab to tabularise some text
+Plug 'godlygeek/tabular'
+" :Ack to search for text
+Plug 'mileszs/ack.vim'
+" :Goyo distraction-free writing mode
 Plug 'junegunn/goyo.vim'
-" Seamlessly navigate tmux splits
-" Plug 'christoomey/vim-tmux-navigator'
-" Syntax highlighting for CoffeeScript
-Plug 'vim-coffee-script'
-" Syntax highlighting for HTML5
-Plug 'othree/html5.vim'
-" Syntax highlighting for Less
-Plug 'groenewege/vim-less'
-" Syntax highlighting for Puppet
-Plug 'rodjek/vim-puppet'
-" Syntax highlighting for Javascript
+
+" My custom colourscheme
+Plug 'zephod/molokai'
+
+" Syntax highlighting
 Plug 'pangloss/vim-javascript'
-" Syntax highlighting for JSX
-Plug 'mxw/vim-jsx'
-" Syntastic: Use `eslint` from `node_modules`
-Plug 'pmsorhaindo/syntastic-local-eslint.vim'
-" Experimental plugins for test-driven development
-Plug 'zephod/vim-test'
+Plug 'othree/html5.vim'
+Plug 'posva/vim-vue'
+
+" Syntax checking
+Plug 'w0rp/ale'
 call plug#end()
 
 " ==============
@@ -58,6 +45,7 @@ call plug#end()
 " ==============
 let g:ctrlp_cmd = 'CtrlPMRUFiles'
 let g:ctrlp_working_path_mode = ''
+let g:ctrlp_max_files=0
 " Stop ctrlp showing me rubbish
 set wildignore+=%*
 set wildignore+=*.pyc
@@ -82,22 +70,6 @@ try
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme desert
 endtry
-
-" =================
-" PLUGIN: Syntastic
-" =================
-let g:syntastic_python_checkers = ['python','pyflakes']
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_enable_signs = 1
-let g:syntastic_always_populate_loc_list=1
-" let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open = 1
-let g:syntastic_full_redraws = 1
-
-" ============
-" PLUGIN: Test
-" ============
-let test#strategy = "neovim"
 
 " ============
 " CORE: NEOVIM
@@ -163,10 +135,9 @@ set expandtab
 
 " Python code
 autocmd FileType python call IndentWithSpaces(4)
-autocmd FileType coffee call IndentWithSpaces(4)
 
-" ES6 code
-autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+" Vue code: Fix syntac highlighter
+autocmd FileType vue syntax sync fromstart
 
 " Don't wrap by default
 set nowrap
@@ -259,15 +230,9 @@ tnoremap <C-w>! <C-\><C-n>:redraw!<cr>i
 " Doubletap <C-w> to escape the terminal
 tnoremap <C-w><C-w> <C-\><C-n>
 " Automatically jump into insert mode in terminals
-autocmd BufWinEnter,WinEnter term://* startinsert
+autocmd TermOpen,BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 " autocmd TermClose term://.* bdelete!
-
-" Python Debug
-au FileType python map <silent> <leader>b oimport ipdb; ipdb.set_trace()<esc>
-au FileType python map <silent> <leader>B Oimport ipdb; ipdb.set_trace()<esc>
-map <silent> <leader>> OXXX DataPress Patch >>><esc>gcc
-map <silent> <leader>< o<<< DataPress Patch XXX<esc>gcckk
 
 " Better command line editing
 cnoremap <C-j> <t_kd>
@@ -284,20 +249,6 @@ cnoremap <Esc>f <S-Right>
 
 cnoremap <Esc>d <S-right><Delete>
 cnoremap <C-g>  <C-c>
-
-
-" Test driven development
-nmap <silent> <leader>t :TestNearest<CR><C-\><C-n><C-w>p
-nmap <silent> <leader>T :TestFile<CR><C-\><C-n><C-w>p
-nmap <silent> <leader>a :TestSuite<CR><C-\><C-n><C-w>p
-nmap <silent> <leader>l :TestLast<CR><C-\><C-n><C-w>p
-nmap <silent> <leader>g :TestVisit<CR><C-\><C-n><C-w>p
-
-" Automatically clean any ESLint syntax errors
-function! FixThisFile()
-  execute "!".b:syntastic_javascript_eslint_exec." --fix %"
-endfunction
-autocmd FileType javascript map <leader>f :call FixThisFile()<CR>
 
 " Incoming change... I get a lot of old SWP files hanging around when I crash.
 set noswapfile
