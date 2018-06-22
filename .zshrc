@@ -61,6 +61,19 @@ alias gd='git diff'
 alias ga='git add'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
+alias curltime='curl -w "
+    time_namelookup:  %{time_namelookup}
+       time_connect:  %{time_connect}
+    time_appconnect:  %{time_appconnect}
+   time_pretransfer:  %{time_pretransfer}
+      time_redirect:  %{time_redirect}
+ time_starttransfer:  %{time_starttransfer}
+                    ----------
+         time_total:  %{time_total}
+" -o /dev/null -s'                                                                                             2.2.4
+
+alias nicecurl='curl -L -v -s'
+alias curlheaders='curl -L -v -s -o /dev/null'
 
 # I wrote this to kill old webpack-dev-servers
 alias rescue='ps -a -eo pid,command | grep "node.*webpack-dev-server" | grep -v grep | awk "{print \$1}" | xargs kill -9'
