@@ -28,6 +28,8 @@ export PATH=$PATH:/usr/local/bin
 export PATH=$PATH:/usr/local/share/npm/bin
 export PATH=$PATH:/opt/chefdk/bin
 export PATH=$PATH:$GOPATH/bin
+export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
+
 
 # I love vim
 export EDITOR=nvim
