@@ -14,7 +14,8 @@ call plug#begin()
 " Ctrl-N is the best
 Plug 'scrooloose/nerdtree'
 " Jump into files
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 " Give me a git overview of file changes
 Plug 'airblade/vim-gitgutter'
 " Automatically closes your HTML
@@ -27,31 +28,28 @@ Plug 'godlygeek/tabular'
 Plug 'mileszs/ack.vim'
 " :Goyo distraction-free writing mode
 Plug 'junegunn/goyo.vim'
-
 " My custom colourscheme
 Plug 'zephod/molokai'
-
 " Syntax highlighting
-Plug 'pangloss/vim-javascript'
-Plug 'othree/html5.vim'
-Plug 'posva/vim-vue'
+Plug 'sheerun/vim-polyglot'
 
 " Syntax checking
 Plug 'w0rp/ale'
 call plug#end()
 
-" ==============
-" PLUGIN: Ctrl-P
-" ==============
-let g:ctrlp_cmd = 'CtrlPMRUFiles'
-let g:ctrlp_working_path_mode = ''
-let g:ctrlp_max_files=0
-" Stop ctrlp showing me rubbish
+" ================
+" PLUGIN: NerdTree
+" ================
 set wildignore+=%*
 set wildignore+=*.pyc
 set wildignore+=node_modules
 set wildignore+=_build
 set wildignore+=_dist
+
+" ==============
+" PLUGIN: FZF
+" ==============
+set rtp+=~/.fzf
 
 " ================
 " PLUGIN: NerdTree
@@ -60,7 +58,7 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 "tnoremap <C-n> <C-\><C-n>:NERDTreeToggle<CR>
 let NERDTreeMapOpenVSplit='<C-v>'
 let NERDTreeMapOpenSplit='<C-x>'
-let NERDTreeIgnore=['\.pyc$',"nodes"]
+let NERDTreeRespectWildIgnore=1
 
 " ===============
 " PLUGIN: Tomokai
@@ -205,6 +203,10 @@ nnoremap <C-w>-  :new<cr>:term<cr>
 nnoremap <C-w>\| :vnew<cr>:term<cr>
 " Seldom used, except by other shortcuts:
 nnoremap <C-w>! :redraw!<cr>
+
+" Replace Ctrl-P with FZF
+nnoremap <C-o> :GFiles<cr>
+nnoremap <C-p> :Buffers<cr>
 
 map <esc>[1;5D <C-Left>
 map <esc>[1;5C <C-Right>

@@ -82,3 +82,5 @@ LOCAL_INIT=~/.init.sh
 if [ -e $LOCAL_INIT ] ; then
   source $LOCAL_INIT
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
