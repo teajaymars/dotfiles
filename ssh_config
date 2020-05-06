@@ -1,6 +1,0 @@
-# Stop disconnecting me
-ServerAliveInterval 30
-
-Host legacyapiserver
-  HostName 52.18.117.89
-  User ckan
