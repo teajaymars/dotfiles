@@ -55,6 +55,7 @@ dc-shell() {
   docker exec -it $ID sh
 }
 
+alias gch='git checkout'
 alias gl='git lg'
 alias gss='git status -s'
 alias gd='git diff'
