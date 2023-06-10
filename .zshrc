@@ -62,17 +62,69 @@ alias curltime='curl -w "
  time_starttransfer:  %{time_starttransfer}
                     ----------
          time_total:  %{time_total}
-" -o /dev/null -s'                                                                                             2.2.4
+" -o /dev/null -s'
 
 alias nicecurl='curl -L -v -s'
 alias curlheaders='curl -L -v -s -o /dev/null'
 
-# I wrote this to kill old webpack-dev-servers
-alias rescue='ps -a -eo pid,command | grep "node.*webpack-dev-server" | grep -v grep | awk "{print \$1}" | xargs kill -9'
-
-LOCAL_INIT=~/.init.sh
-if [ -e $LOCAL_INIT ] ; then
-  source $LOCAL_INIT
-fi
+# Seems redundant
+# LOCAL_INIT=~/.init.sh
+# if [ -e $LOCAL_INIT ] ; then
+#   source $LOCAL_INIT
+# fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+alias ps3000='lsof -nP -iTCP:3000 | grep LISTEN | xargs echo | cut -d " " -f 2'
+
+# export PATH="/usr/local/opt/curl/bin:$PATH"
+
+# Ensure SSH agent is running
+eval "$(ssh-agent)" > /dev/null
+ssh-add --apple-load-keychain > /dev/null 2>&1
+
+# Node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Python version manager version manager
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# For Sony Bravia / DVD player
+function ffmpeg_divx {
+  ffmpeg -i "$1" \
+    -c:v mpeg4 \
+    -q:v 5 \
+    -tag:v DIVX \
+    -s 720x480 \
+    -c:a libmp3lame \
+    -q:a 5 \
+    -ac 2 \
+    -ar 44100 \
+    "${1%.*}.divx.avi"
+}
+
+# Worked on Bottom's AVI files
+function ffmpeg_mp4 {
+  ffmpeg -i "$1" \
+    -c:v mpeg4 \
+    -q:v 3 \
+    "${1%.*}.mp4"
+}
+
+
+function ffmpeg_ac3 {
+  ffmpeg -i "$1" \
+    -map 0:v  \
+    -map 0:a:0  \
+    -map 0:s  \
+    -c copy  \
+    -c:a ac3  \
+    -b:a 640k  \
+    "${1%.*}.ac3.mkv"
+}
