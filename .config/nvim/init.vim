@@ -32,7 +32,7 @@ Plug 'zephod/molokai'
 Plug 'sheerun/vim-polyglot'
 
 " Syntax checking
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 call plug#end()
 
 " ================
