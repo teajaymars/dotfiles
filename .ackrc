@@ -5,7 +5,11 @@ css=.less
 --type-add
 html=.hbs
 
+--ignore-file=is:yarn.lock
 --ignore-dir=node_modules
 --ignore-dir=dist.client
 --ignore-dir=dist.server
 --ignore-dir=.sass-cache
+--ignore-dir=.nuxt
+--ignore-dir=.output
+--ignore-dir=.backups
