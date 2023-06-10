@@ -5,6 +5,14 @@ ZSH_THEME="amuse"
 DISABLE_AUTO_UPDATE=true
 source $ZSH/oh-my-zsh.sh
 
+# https://docs.brew.sh/Shell-Completion
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
 
 # Path and variables
 #############################
