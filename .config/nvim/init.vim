@@ -257,3 +257,7 @@ set noswapfile
 
 " This is useful
 inoremap § #
+
+" the ultimate snippet
+nnoremap <leader>s OSCRIPT_DIR="$( cd -- "$( dirname -- "${BASH_SOURCE[0]:-$0}"; )" &> /dev/null && pwd 2> /dev/null; )";<Return><C-c>
+
