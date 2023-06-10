@@ -163,9 +163,11 @@ nnoremap k gk
 " Double tap the leader to toggle hidden characters
 nnoremap <Leader><Leader> :set list!<Return>
 " Leader-enter to toggle word wrap
-nnoremap <Leader><Return> :set wrap!<Return>
+nnoremap <Leader><Return> :set wrap!<Return>:set linebreak!<Return>
 " Leader-y to yank-append
 nnoremap <Leader>y @".getline('.')
+" My favourite text editor
+nmap <silent> <leader>g :set wrap<CR>:set linebreak<CR>:Goyo<CR>
 
 "
 " Wrap window-move-cursor
