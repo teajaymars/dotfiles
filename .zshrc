@@ -18,42 +18,23 @@ fi
 #############################
 
 HIST_STAMPS="yyyy-mm-dd"
-plugins=(git osx zsh-256color)
-
-export GOPATH="/Users/zephod/code/go"
-
-export PATH=""
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/usr/bin
-export PATH=$PATH:/bin
-export PATH=$PATH:/usr/sbin
-export PATH=$PATH:/sbin
-export PATH=$PATH:/usr/bin
-export PATH=$PATH:/bin
-export PATH=$PATH:/usr/sbin
-export PATH=$PATH:/sbin
-export PATH=$PATH:/usr/local/bin
-export PATH=$PATH:/usr/local/share/npm/bin
-export PATH=$PATH:/opt/chefdk/bin
-export PATH=$PATH:$GOPATH/bin
-export NODE_PATH=$NODE_PATH:/usr/local/lib/node_modules
-
+plugins=(git osx zsh-256color zsh-yarn-completions)
 
 # I love vim
 export EDITOR=nvim
 alias vim="nvim"
 
-# Override some ridiculous global default I can't see
-export VAGRANT_DEFAULT_PROVIDER=virtualbox
-
 export ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
 
+# Kubernetes autocompletion
+# Source: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+# source <(kubectl completion zsh)
 
 # Aliases
 #############################
 
 git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
-alias dc='docker-compose'
+alias dc='docker compose'
 dc-reboot() {
   dc rm --stop --force -v $1
   dc up -d --no-deps --build $1
@@ -66,8 +47,10 @@ dc-shell() {
 alias gch='git checkout'
 alias gl='git lg'
 alias gss='git status -s'
+alias gch='git checkout'
 alias gd='git diff'
 alias ga='git add'
+alias gb='git branch'
 alias gcm='git commit -m'
 alias gcam='git commit -a -m'
 alias curltime='curl -w "
